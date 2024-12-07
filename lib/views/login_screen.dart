@@ -122,7 +122,7 @@ class LoginScreen extends ConsumerWidget {
                       final viewModel = ref.read(authViewModelProvider);
                       final result = await viewModel.login(emailController.text);
                       if (result) {
-                        if (context.mounted) context.go('/dashboard');
+                        if (context.mounted) context.go('/main');
                       }
                     },
                     height: 57,

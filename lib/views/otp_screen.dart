@@ -88,12 +88,14 @@ class OTPScreen extends ConsumerWidget {
                     onPressed: () async {
                       final otp = otpPin.join();
                       final success = await ref.read(authViewModelProvider).verifyOtp(otp);
-                      if (success) {
-                        context.go('/dashboard');
+                      if (success && context.mounted) {
+                        context.go('/main');
                       } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Invalid OTP!')),
-                        );
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('Invalid OTP!')),
+                          );
+                        }
                       }
                     },
                   ),
@@ -108,12 +110,14 @@ class OTPScreen extends ConsumerWidget {
                     onPressed: () async {
                       final otp = otpPin.join();
                       final success = await ref.read(authViewModelProvider).verifyOtp(otp);
-                      if (success) {
-                        context.go('/dashboard');
+                      if (success && context.mounted) {
+                        context.go('/main');
                       } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Invalid OTP!')),
-                        );
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('Invalid OTP!')),
+                          );
+                        }
                       }
                     },
                   ),
