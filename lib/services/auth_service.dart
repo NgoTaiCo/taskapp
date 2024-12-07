@@ -3,9 +3,8 @@ import 'package:http/http.dart' as http;
 
 class AuthService {
   Future<bool> login(String email) async {
-    final response = await http.get(
-        Uri.parse('https://jsonplaceholder.typicode.com/users?email=$email'));
-    return response.statusCode == 200 && json.decode(response.body).isNotEmpty;
+    final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/users?email=$email'));
+    return response.statusCode == 200;
   }
 
   Future<bool> signup(Map<String, dynamic> data) async {

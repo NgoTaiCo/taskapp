@@ -6,6 +6,10 @@ final authViewModelProvider = Provider<AuthViewModel>((ref) {
 });
 
 class AuthViewModel {
+  final rememberAccountRef = StateProvider((ref) => false);
+  final agreeTCRef = StateProvider((ref) => false);
+  final otpPinRef = StateProvider<List<String>>((ref) => ['', '', '', '']); // Store OTP digits
+
   final AuthService _authService = AuthService();
 
   Future<bool> login(String email) async {
